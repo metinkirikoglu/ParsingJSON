@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ParsingJSON</string>
+    <string name="subject_name">Parsing JSON</string>
+    <string name="from_local_string">from local string</string>
+    <string name="from_local_to_listview">from local into listview</string>
+    <string name="from_assets_into_recyclerview">from assets into recyclerview</string>
+    <string name="name">Name:</string>
+    <string name="title">Student Info</string>
+    <string name="surname">Surname:</string>
+    <string name="age">Age:</string>
+    <string name="email">Email</string>
+    <string name="mobile">Mobile</string>
+    <string name="home">Home</string>
+    <string name="from_url_into_listview">from url into listview</string>
+</resources>
