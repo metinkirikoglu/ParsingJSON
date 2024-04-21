@@ -27,7 +27,7 @@ public class FromUrlToListView extends AppCompatActivity {
         setContentView(view);
         Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.from_url_into_listview));
 
-
+    // will be added soon
 
     }
 }

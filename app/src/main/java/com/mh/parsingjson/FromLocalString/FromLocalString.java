@@ -35,18 +35,20 @@ public class FromLocalString extends AppCompatActivity {
         setContentView(view);
         Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.from_local_string));
         try {
-            // create the JSON object from the string above
+            // create a new JSONObject instance from the JSON_STRING
             JSONObject jsonObject = new JSONObject(JSON_STRING);
-            //get the student object
+            // retrieve the nested object named "student" from the main JSON object.
             JSONObject object = jsonObject.getJSONObject("student");
-            //get the employee object's name
+            //extract the value for the key "name" within the "student" object and
+            //store it in the name variable. Similar calls are made for surname and
+            //age using getString and getInt methods respectively, based on their data types.
             String name = object.getString("name");
-            //get the employee object's name
             String surname = object.getString("surname");
-            //get the employee object's salary
             int age = object.getInt("age");
 
-            //set values
+            //set the text of the text view with the ID txtNameValue to the
+            // value stored in the name variable. Similar calls are made for
+            // txtSurnameValue and txtAgeValue to display the extracted data.
             binding.txtNameValue.setText(name);
             binding.txtSurnameValue.setText(surname);
             binding.txtAgeValue.setText(String.valueOf(age));

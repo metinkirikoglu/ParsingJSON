@@ -22,6 +22,7 @@ public class FromLocaleToListview extends AppCompatActivity {
     private ActivityFromLocaleToListviewBinding binding;
     private ListView listView;
 
+    // define a string variable containing the JSON data directly embedded in the code.
     private String JSON_STRING = "{\n" +
             "  \"students\": [\n" +
             "    {\n" +
@@ -60,33 +61,40 @@ public class FromLocaleToListview extends AppCompatActivity {
         setContentView(view);
         listView = binding.listviewStudents;
         Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.from_local_to_listview));
-        //get the json objects
+
         try {
-            // create a list to store the students
+            // create an ArrayList to store student information,
+            //but uses StringBuffer (a mutable string buffer) instead of
+            //more common data structures like Student objects or String arrays.
             ArrayList<StringBuffer> students = new ArrayList<>();
-            // create a JSON object to get the object in the json string
+            //parse the local JSON string into a JSONObject object.
             JSONObject jsonObject = new JSONObject(JSON_STRING);
-            // create a jsonArray to get the array in the jsonObject
+            // retrieve the JSON array named "students" from the main JSON object.
             JSONArray jsonArray = jsonObject.getJSONArray("students");
             // add the jsonArray into the arraylist
             for (int i = 0; i < jsonArray.length(); i++) {
-                //for i get the i. create an json object
+                //extract a specific student object (JSONObject) from the array.
                 JSONObject object = jsonArray.getJSONObject(i);
-                //to display student info, it can be done with a custom adapter,
-                // but here the goal is to keep it simple
+                //Here, instead of creating custom objects, a StringBuffer is used
+                //to build a formatted string containing student information.
+                //create a new StringBuffer object.
                 StringBuffer  studentInfoString = new StringBuffer();
+                //append the student's name, surname, age, and separators to the
+                //studentInfoString using appropriate methods from StringBuffer.
                 studentInfoString.append(object.getString("name"))
                         .append(" ")
                         .append(object.getString("surname"))
                         .append(" - ")
                         .append(String.valueOf(object.getInt("age")));
-                // add the StringBuffer to the array list
+                //add the created StringBuffer containing formatted student information to the students ArrayList.
                 students.add(studentInfoString);
 
             }
-            // create the adapter for listview
+            //create an ArrayAdapter for the ListView.
             ArrayAdapter<StringBuffer> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, students);
-
+           //checks if the ListView reference is valid and then sets the created
+            //ArrayAdapter as the adapter for the ListView. The adapter is responsible
+            //for providing data and views for each item displayed in the list.
             if (listView != null) {
                 listView.setAdapter(adapter);
             }
