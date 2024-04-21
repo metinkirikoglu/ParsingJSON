@@ -8,8 +8,8 @@
     <string name="title">Student Info</string>
     <string name="surname">Surname:</string>
     <string name="age">Age:</string>
-    <string name="email">Email</string>
-    <string name="mobile">Mobile</string>
-    <string name="home">Home</string>
+    <string name="email">Email:</string>
+    <string name="mobile">Mobile:</string>
+    <string name="home">Home:</string>
     <string name="from_url_into_listview">from url into listview</string>
 </resources>
